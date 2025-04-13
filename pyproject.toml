@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qutilities"
+version = "0.1.0"
+description = "Composable quantum utilities for Qiskit: QFT, QPE, and more"
+authors = [
+  { name = "On Tides of Uncertainty" }
+]
+license = { text = "Apache-2.0" }
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "qiskit>=0.45"
+]
+
+[project.urls]
+Homepage = "https://github.com/MarcusSkynet/tides-of-uncertainty"
+Repository = "https://github.com/MarcusSkynet/qutilities"
+
+[tool.setuptools]
+packages = ["qutilities", "qutilities.qft", "qutilities.qpe"]
