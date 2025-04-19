@@ -217,7 +217,7 @@ class QFTGate:
         """
 
         self.qft = QFT(
-            qft_qubits = num_qubits,
+            num_qubits = num_qubits,
             inverse = inverse,
             do_swaps = do_swaps,
             approximation_level = approximation_level,
