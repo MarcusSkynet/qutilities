@@ -15,19 +15,12 @@
 # limitations under the License.
 
 """
-This submodule is part of **on-tides-of-uncertainty**, a Python toolkit for exploring
-quantum computation through composable libraries, educational experiments, and
-algorithmic prototyping.
+Arithmetic subpackage for quantum register operations and modular computation.
 
-Provides:
-    - QFT / QFTGate: Modular Quantum Fourier Transform (QFT) circuit and reusable gate
-    - QPE / QPEGate: Generalized Quantum Phase Estimation (QPE) with toy or custom unitary
-    - Arithmetic: Tools for QFT-based arithmetic (e.g. QFTAdder)
+Includes:
+    - Adders
 """
 
-from .qft import QFT, QFTGate
-from .qpe import QPE, QPEGate
-from .arithmetic.adders.qft_adder import QFTAdder
+from .adders.qft_adder import QFTAdder
 
-__all__ = ["QFT", "QFTGate", "QPE", "QPEGate", "QFTAdder"]
-__version__ = "0.2.0"
+__all__ = ["QFTAdder"]
