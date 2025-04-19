@@ -38,7 +38,7 @@ class QFT:
             raise ValueError("[!] Number of qubits must be a positive integer.")
     
         if self.label is None:
-            self.label = f\"QFT ({self.qft_qubits})\" if not self.inverse else f\"QFT† ({self.qft_qubits})\"
+            self.label = f"QFT ({self.qft_qubits})" if not self.inverse else f"QFT† ({self.qft_qubits})"
 
     def _qubit_range(self):
         '''
