@@ -5,7 +5,7 @@ from math import pi
 class QFT:
     def __init__(
         self,
-        qft_qubits: int,
+        num_qubits: int,
         inverse: bool = False,
         do_swaps: bool = False,
         approximation_level: int = 0,
@@ -31,7 +31,7 @@ class QFT:
         if label is None:
             label = f"QFT ({qft_qubits})" if not inverse else f"QFT† ({qft_qubits})"
 
-        self.qft_qubits = qft_qubits
+        self.qft_qubits = num_qubits
         self.inverse = inverse
         self.do_swaps = do_swaps
         self.approximation_level = approximation_level
@@ -182,7 +182,7 @@ class QFT:
 class QFTGate:
     def __init__(
         self,
-        qft_qubits: int,
+        num_qubits: int,
         inverse: bool = False,
         do_swaps: bool = False,
         approximation_level: int = 0,
@@ -200,7 +200,7 @@ class QFTGate:
     
         Parameters
         ----------
-        qft_qubits : int
+        num_qubits : int
             Number of qubits the QFT will act on.
     
         inverse : bool, optional (default: False)
@@ -217,7 +217,7 @@ class QFTGate:
         """
 
         self.qft = QFT(
-            qft_qubits = qft_qubits,
+            qft_qubits = num_qubits,
             inverse = inverse,
             do_swaps = do_swaps,
             approximation_level = approximation_level,
