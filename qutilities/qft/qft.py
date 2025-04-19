@@ -25,12 +25,7 @@ class QFT:
         - insert_barrier (bool): If True, insert visual barriers between logical blocks for better visualization.
         - label (str|None): Optional label for the returned QFT gate.
         """
-        if qft_qubits is None or qft_qubits < 1:
-            raise ValueError("[!] Number of qubits must be a positive integer.")
-
-        if label is None:
-            label = f"QFT ({qft_qubits})" if not inverse else f"QFT† ({qft_qubits})"
-
+        
         self.qft_qubits = num_qubits
         self.inverse = inverse
         self.do_swaps = do_swaps
@@ -38,6 +33,12 @@ class QFT:
         self.debug = debug
         self.insert_barrier = insert_barrier
         self.label = label
+            
+        if self.qft_qubits is None or self.qft_qubits < 1:
+            raise ValueError("[!] Number of qubits must be a positive integer.")
+    
+        if self.label is None:
+            self.label = f\"QFT ({self.qft_qubits})\" if not self.inverse else f\"QFT† ({self.qft_qubits})\"
 
     def _qubit_range(self):
         '''
