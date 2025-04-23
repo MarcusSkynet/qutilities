@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 2025-04-23
+
+### Added
+- Introduced `QFTMultiplier` class for quantum-coherent multiplication in the Fourier basis.
+  - Performs `|Y⟩|M⟩|N⟩ → |Y ± M × N⟩|M⟩|N⟩`
+  - Parameters: `multiplicand`, `multiplier`, optional `target`
+  - Flags: `inverse`, `skip_qft`, `insert_barrier`, `debug`
+  - Modular helper methods: `_create_qft_gate`, `_create_iqft_gate`, `_apply_qft`, `_apply_C_ADD`, `_debug_display`
+  - Internally composes `QFTAdder` as a controlled operation
+  - Ready for use as a composable quantum `Gate` (unitary)
+
+### Changed
+- Finalized `QFTAdder` interface and documentation:
+  - Replaced parameters `X` and `A` with clearer names: `target`, `operand`
+  - Aligned internal naming (`X_reg`, `A_reg`) with symbolic math
+  - Updated docstrings to match public API (`target`, `operand`) and clarify semantics:
+    - Overflow constraint on `target`
+    - Subtraction toggle via `inverse`
+    - Label behavior and debugging support
+
+- Refined import structure throughout:
+  - Switched from circular top-level imports to clean absolute submodule references
+  - Avoided triggering package `__init__` during submodule loading (fixes ImportError)
+
+### Notes
+- All arithmetic logic is fully quantum-compatible: coherent, reversible, and superposition-safe
+- Style and architecture now align with `QFTGate` and `QPE` module conventions
+
+---
+
 ## [0.2.0] - 2025-04-19
 
 ### Added

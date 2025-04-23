@@ -24,6 +24,7 @@ Provides:
     - QFTGate: Exportable QFT as a reusable circuit gate
 """
 
+# === IMPORTS START ===
 from .qft import QFT, QFTGate
-
-__all__ = ["QFT", "QFTGate"]
+__all__ = ['QFT', 'QFTGate']
+# === IMPORTS END ===

@@ -1,4 +1,4 @@
-# This file is part of the on-tides-of-uncertainty project.
+# This file is part of the On Tides of Uncertainty project.
 #
 # (C) 2025 On Tides of Uncertainty
 #
@@ -11,20 +11,15 @@
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
 """
-This module is part of **on-tides-of-uncertainty**, a Python toolkit for exploring
-quantum computation through composable libraries, educational experiments, and
-algorithmic prototyping.
-
-Provides:
-    - QPE: General-purpose Quantum Phase Estimation (angle or unitary-based)
-    - QPEGate: Exportable QPE as a reusable circuit gate
+[Auto-generated placeholder] Add a module-level docstring describing this package.
 """
 
 # === IMPORTS START ===
-from .qpe import QPE, QPEGate
-__all__ = ['QPE', 'QPEGate']
+from .qft_multiplier import QFTMultiplier
+__all__ = ['QFTMultiplier']
 # === IMPORTS END ===

@@ -15,7 +15,7 @@
 # limitations under the License.
 
 """
-This submodule is part of **on-tides-of-uncertainty**, a Python toolkit for exploring
+This module is part of **on-tides-of-uncertainty**, a Python toolkit for exploring
 quantum computation through composable libraries, educational experiments, and
 algorithmic prototyping.
 
@@ -25,9 +25,11 @@ Provides:
     - Arithmetic: Tools for QFT-based arithmetic (e.g. QFTAdder)
 """
 
-from .qft import QFT, QFTGate
-from .qpe import QPE, QPEGate
-from .arithmetic.adders.qft_adder import QFTAdder
+# === IMPORTS START ===
+from . import arithmetic
+from . import qft
+from . import qpe
+__all__ = ['arithmetic', 'qft', 'qpe']
+# === IMPORTS END ===
 
-__all__ = ["QFT", "QFTGate", "QPE", "QPEGate", "QFTAdder"]
 __version__ = "0.2.0"

@@ -22,9 +22,19 @@ It’s built on [Qiskit](https://qiskit.org/), but shaped by curiosity.
   - Reusable gate export
   - Debug circuit visualization
 
+- ✅ **QFT-Based Arithmetic**
+  - `QFTAdder`: Draper-style QFT adder/subtractor
+    - `target ± operand` logic (in-place)
+    - Optional Fourier basis skipping
+    - Fully unitary and reversible
+  - `QFTMultiplier`: Repeated controlled additions for `target ± multiplicand × multiplier`
+    - Fourier-domain accumulation logic
+    - Fully quantum-coherent (supports superposition)
+    - Supports subtraction (`inverse=True`)
+
 - 📦 Built as installable package
 - 🧪 Ready for integration and testing
-- 🧰 More tools coming soon...
+- 🧠 More tools coming soon...
 
 ---
 
@@ -43,6 +53,9 @@ pip install -e .
 ```python
 from qutilities.qft import QFT
 from qutilities.qpe import QPE, QPEGate
+from qutilities.arithmetic.adders.qft_adder import QFTAdder
+from qutilities.arithmetic.multipliers.qft_multiplier import QFTMultiplier
+from qiskit import QuantumRegister
 
 # QFT circuit
 qft = QFT(num_qubits=4, do_swaps=True, debug=True)
@@ -51,16 +64,19 @@ circuit = qft.build()
 # QPE using a simple angle
 qpe = QPE(control_qubits=3, theta=0.125, debug=True)
 qpe_circuit = qpe.build()
-```
 
-Or as gates:
+# QFTAdder
+X = QuantumRegister(4, 'X')
+A = QuantumRegister(3, 'A')
+adder = QFTAdder(target=X, operand=A)
+adder_circuit = adder.build()
 
-```python
-from qutilities.qft import QFTGate
-from qutilities.qpe import QPEGate
-
-qft_gate = QFTGate(4).build()
-qpe_gate = QPEGate(3, theta=0.125).build()
+# QFTMultiplier
+M = QuantumRegister(3, 'M')
+N = QuantumRegister(2, 'N')
+Y = QuantumRegister(5, 'Y')
+multiplier = QFTMultiplier(multiplicand=M, multiplier=N, target=Y)
+mult_circuit = multiplier.build()
 ```
 
 ---
@@ -70,12 +86,15 @@ qpe_gate = QPEGate(3, theta=0.125).build()
 ```
 qutilities/
 ├── qft/
-│   ├── qft.py        # QFT + QFTGate
-│   └── __init__.py
+│   ├── qft.py            # QFT + QFTGate
 ├── qpe/
-│   ├── qpe.py        # QPE + QPEGate
-│   └── __init__.py
-├── __init__.py
+│   ├── qpe.py            # QPE + QPEGate
+├── arithmetic/
+│   ├── adders/
+│   │   └── qft_adder.py  # QFTAdder
+│   ├── multipliers/
+│   │   └── qft_multiplier.py  # QFTMultiplier
+└── __init__.py
 ```
 
 ---

@@ -11,6 +11,7 @@
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
@@ -19,8 +20,11 @@ Arithmetic subpackage for quantum register operations and modular computation.
 
 Includes:
     - Adders
+    - Multipliers
 """
 
-from .adders.qft_adder import QFTAdder
-
-__all__ = ["QFTAdder"]
+# === IMPORTS START ===
+from . import adders
+from . import multipliers
+__all__ = ['adders', 'multipliers']
+# === IMPORTS END ===

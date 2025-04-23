@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "qutilities"
-version = "0.1.0"
+version = "0.3.0"
 description = "Composable quantum utilities for Qiskit: QFT, QPE, and more"
 authors = [
   { name = "On Tides of Uncertainty" }
@@ -21,4 +21,4 @@ Homepage = "https://github.com/MarcusSkynet/tides-of-uncertainty"
 Repository = "https://github.com/MarcusSkynet/qutilities"
 
 [tool.setuptools]
-packages = ["qutilities", "qutilities.qft", "qutilities.qpe"]
+packages = ["qutilities", "qutilities.qft", "qutilities.qpe", "qutilities.arithmetic.adders", "qutilities.arithmetic.multipliers"]
